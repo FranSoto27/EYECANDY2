@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EYECANDY2", "EYECANDY2\EYECANDY2.csproj", "{B19A017C-BC38-495F-AE68-F6F5F6DD5A3D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B19A017C-BC38-495F-AE68-F6F5F6DD5A3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B19A017C-BC38-495F-AE68-F6F5F6DD5A3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B19A017C-BC38-495F-AE68-F6F5F6DD5A3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B19A017C-BC38-495F-AE68-F6F5F6DD5A3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D1B7B3F-7BCF-488B-B70B-B538309A6F01}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,45 @@
+﻿@model List<ActorModel>
+<div class="row">
+    <div class="col-md-6">
+        <h3 style="color: antiquewhite">Listado de Actores</h3>
+    </div>
+    <div class="col-md-6">
+        <a asp-controller="Actores" asp-action="Nuevo" class="btn btn-outline" style="color:aqua" data-toggle="tooltip" data-placement="top" title="Nuevo"><i class="bi bi-plus-square" style="color: aqua; font-size: 30px; margin-top: 8px;"></i></a>
+    </div>
+</div>
+<hr />
+<div class="card-body-nuevo">
+    @if (Model.Count > 0)
+    {
+        <table class="table table-striped" style="width: 75%;">
+            <thead>
+                <tr style="color: #e6c655;">
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody style="color:antiquewhite">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Nombre</td>
+                        <td>@item.FechaNacimiento.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            <a asp-route-id="@item.Id" asp-controller="Actores" asp-action="Editar" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="top" title="Editar Actor"><i class="bi bi-pen"></i></a>
+                            <a asp-route-id="@item.Id" asp-controller="Actores" asp-action="Eliminar" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="top" title="Eliminar actor"><i class="bi bi-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
+    else
+            {
+<h3> No existen registros para mostrar</h3>
+            }
+
+</div>

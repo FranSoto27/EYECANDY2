@@ -1,0 +1,19 @@
+﻿@model GeneroEdicionModelo
+<h3>Eliminar Genero</h3>
+<hr />
+<div class="card-eliminar">
+    <div class="card-body">
+        <div style=" color:antiquewhite">
+            <form method="post" asp-controller="Generos" asp-action="EliminarGenero">
+                <h2>¿Está seguro de eliminar el Género: @Model.Nombre ?</h2>
+                <h3>Id: @Model.Id</h3>
+                <h4>Nombre: @Model.Nombre</h4>
+                <input type="hidden" asp-for="Id" />
+                <br />
+                <button type="submit" class="btn btn-danger">Si</button>
+                <a asp-controller="Generos" asp-action="Index" class="btn btn-secondary">No</a>
+
+            </form>
+        </div>
+    </div>
+</div>

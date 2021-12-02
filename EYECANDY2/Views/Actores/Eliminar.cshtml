@@ -1,0 +1,18 @@
+﻿@model ActorEdicionModel
+<h3>Eliminar Actor</h3>
+<hr />
+    <div class="card-eliminar">
+        <div class="card-body">
+            <div style="color:antiquewhite">
+            <form method="post" asp-controller="Actores" asp-action="Eliminar">
+                <h2>¿Está seguro de eliminar el Actor: @Model.Nombre?</h2>
+                    <h3>Id: @Model.Id</h3>
+                    <h4>Nombre: @Model.Nombre</h4>
+                    <input type="hidden" asp-for="Id" />
+                    <br />
+                    <button type="submit" class="btn btn-danger">Si</button>
+                    <a asp-controller="Actores" asp-action="Index" class="btn btn-secondary">No</a>
+            </form>
+        </div>
+    </div>
+        </div>

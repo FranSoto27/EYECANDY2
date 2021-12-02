@@ -1,0 +1,21 @@
+﻿@model GeneroEdicionModelo
+<h3>Editar Género</h3>
+<hr />
+<div class="card-edit-gen">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body" style="border-block-color:darkgoldenrod">
+                <form method="post" asp-controller="Generos" asp-action="EditarGenero">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="Nombre"></label>
+                        <input asp-for="Nombre" type="text" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
