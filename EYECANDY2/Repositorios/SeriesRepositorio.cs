@@ -2,6 +2,7 @@
 using EYECANDY2.Models;
 using EYECANDY2.Models.Entidades;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,18 @@ namespace EYECANDY2.Repositorios
             var entidad = _mapper.Map<Serie>(model);
             _context.Series.Add(entidad);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<List<SerieModel>> ObtenerTodas()
+        {
+            var entidades = await _context.Series
+                .Include(s=>s.SeriesActores)
+                .ThenInclude(sa => sa.Actor)
+                .Include(s => s.SeriesGeneros)
+                .ThenInclude(sg => sg.Genero)
+                .ToListAsync();
+            var resultado = _mapper.Map<List<SerieModel>>(entidades);
+            return resultado;
         }
     }
 }

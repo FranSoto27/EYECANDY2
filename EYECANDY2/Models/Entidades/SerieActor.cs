@@ -9,7 +9,8 @@ namespace EYECANDY2.Models.Entidades
     {
         public int ActorId { get; set; }
         public int SerieId { get; set; }
-        public Serie Serie { get; set; }
+
         public Actor Actor { get; set; }
+        public Serie Serie { get; set; }
     }
 }

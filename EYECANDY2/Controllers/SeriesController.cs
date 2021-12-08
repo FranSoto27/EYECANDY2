@@ -20,9 +20,10 @@ namespace EYECANDY2.Controllers
             _repositorio = repositorio;
             _almacenadorArchivos = almacenadorArchivos;
         }
-            public IActionResult Index()
+            public async Task<IActionResult> Index()
             {
-            return View();
+            var model = await _repositorio.ObtenerTodas();
+            return View(model);
         }
         public async Task<IActionResult> Nuevo()
         {
@@ -40,7 +41,7 @@ namespace EYECANDY2.Controllers
                     var urlAfiche = await _almacenadorArchivos.GuardarArchivo(model.Afiche, Carpeta);
                     model.AficheUrl = urlAfiche;
                 }
-
+                await _repositorio.Guardar(model);
                 return RedirectToAction("Index");
             }
 

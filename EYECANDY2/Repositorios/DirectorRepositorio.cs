@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using EYECANDY2.Models;
+using EYECANDY2.Models.Entidades;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,12 @@ namespace EYECANDY2.Repositorios
             var entities = await _context.Directores.ToListAsync();
             var models = _mapper.Map<List<DirectorModel>>(entities);
             return (models);
+        }
+        public async Task Guardar(DirectorCreacionModel model)
+        {
+            var entidad = _mapper.Map<Director>(model);
+            _context.Directores.Add(entidad);
+            await _context.SaveChangesAsync();
         }
 
     }

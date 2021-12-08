@@ -18,6 +18,6 @@ namespace EYECANDY2.Models.Entidades
         public string Biografia { get; set; }
         [MaxLength(255)]
         public string ImagenUrl { get; set; }
-        public List<SerieGenero> SeriesGeneros { get; set; }
+        public List<SerieActor> SeriesActores { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿<div class="row">
+﻿@model List<SerieModel>
+<div class="row">
     <div class="col-md-6">
         <h3 style="color: antiquewhite">Listado de Series</h3>
     </div>
@@ -6,3 +7,26 @@
         <a asp-controller="Series" asp-action="Nuevo" class="btn btn-outline" style="color:aqua" data-toggle="tooltip" data-placement="top" title="Nuevo"><i class="bi bi-plus-square" style="color: aqua; font-size: 30px; margin-top: 8px;"></i></a>
     </div>
 </div>
+<hr />
+@foreach (var serie in Model)
+{
+<div class="col-lg-5" style="color: antiquewhite;">
+    <span>  @serie.Nombre @serie.Anio </span>
+    <div class="row">
+        <div class="col-md-2">
+            <span>
+                <img src="@serie.AficheUrl" style="width:255px;height:315px;"/>
+            </span>
+        </div>
+        <div class="col-md-6">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/@serie.Trailer"
+                    frameborder="0" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture"
+                    allowfullscren>
+                    </iframe>
+
+        </div>
+    </div>
+</div>
+
+    }
+

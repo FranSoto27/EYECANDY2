@@ -13,14 +13,16 @@ namespace EYECANDY2
         {
 
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<SerieActor>()
-                .HasKey(sa => new { sa.Actor, sa.SerieId });
+                .HasKey(sa => new { sa.ActorId, sa.SerieId });
             modelBuilder.Entity<SerieGenero>()
                 .HasKey(sg => new { sg.SerieId, sg.GeneroId });
         }
+
 
 
         public DbSet<Genero> Generos { get; set; }

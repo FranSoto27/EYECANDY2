@@ -8,6 +8,8 @@ namespace EYECANDY2.Repositorios
 {
     public interface ISerieRepositorio
     {
+        Task Guardar(SerieCreacionModel model);
         Task<SerieCreacionModel> NuevaSerieCreacionModel();
+        Task<List<SerieModel>> ObtenerTodas();
     }
 }

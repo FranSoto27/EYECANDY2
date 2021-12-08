@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EYECANDY2.Models.Entidades
+namespace EYECANDY2.Models
 {
-    public class Serie
+    public class SerieModel
     {
         public int Id { get; set; }
-        [MaxLength(100)]
         public string Nombre { get; set; }
         public int Anio { get; set; }
-        [MaxLength(1000)]
         public string Sinopsis { get; set; }
         public string Trailer { get; set; }
         public string AficheUrl { get; set; }
-        public List<SerieGenero> SeriesGeneros { get; set; }
-        public List<SerieActor> SeriesActores { get; set; }
-        public List<Director> Directores { get; set; }
+
+        public string ActorNombre { get; set; }
+        public string GeneroNombre { get; set; }
     }
 }

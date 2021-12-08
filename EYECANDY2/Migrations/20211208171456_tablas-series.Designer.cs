@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EYECANDY2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211207221010_series-tabla")]
-    partial class seriestabla
+    [Migration("20211208171456_tablas-series")]
+    partial class tablasseries
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,21 +20,6 @@ namespace EYECANDY2.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.11")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("ActorSerie", b =>
-                {
-                    b.Property<int>("ActoresId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SeriesId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ActoresId", "SeriesId");
-
-                    b.HasIndex("SeriesId");
-
-                    b.ToTable("ActorSerie");
-                });
 
             modelBuilder.Entity("DirectorSerie", b =>
                 {
@@ -152,34 +137,34 @@ namespace EYECANDY2.Migrations
                     b.ToTable("Series");
                 });
 
-            modelBuilder.Entity("GeneroSerie", b =>
+            modelBuilder.Entity("EYECANDY2.Models.Entidades.SerieActor", b =>
                 {
-                    b.Property<int>("GenerosId")
+                    b.Property<int>("ActorId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SeriesId")
+                    b.Property<int>("SerieId")
                         .HasColumnType("int");
 
-                    b.HasKey("GenerosId", "SeriesId");
+                    b.HasKey("ActorId", "SerieId");
 
-                    b.HasIndex("SeriesId");
+                    b.HasIndex("SerieId");
 
-                    b.ToTable("GeneroSerie");
+                    b.ToTable("SeriesActores");
                 });
 
-            modelBuilder.Entity("ActorSerie", b =>
+            modelBuilder.Entity("EYECANDY2.Models.Entidades.SerieGenero", b =>
                 {
-                    b.HasOne("EYECANDY2.Models.Entidades.Actor", null)
-                        .WithMany()
-                        .HasForeignKey("ActoresId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("SerieId")
+                        .HasColumnType("int");
 
-                    b.HasOne("EYECANDY2.Models.Entidades.Serie", null)
-                        .WithMany()
-                        .HasForeignKey("SeriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("GeneroId")
+                        .HasColumnType("int");
+
+                    b.HasKey("SerieId", "GeneroId");
+
+                    b.HasIndex("GeneroId");
+
+                    b.ToTable("SeriesGeneros");
                 });
 
             modelBuilder.Entity("DirectorSerie", b =>
@@ -197,19 +182,59 @@ namespace EYECANDY2.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("GeneroSerie", b =>
+            modelBuilder.Entity("EYECANDY2.Models.Entidades.SerieActor", b =>
                 {
-                    b.HasOne("EYECANDY2.Models.Entidades.Genero", null)
-                        .WithMany()
-                        .HasForeignKey("GenerosId")
+                    b.HasOne("EYECANDY2.Models.Entidades.Actor", "Actor")
+                        .WithMany("SeriesActores")
+                        .HasForeignKey("ActorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EYECANDY2.Models.Entidades.Serie", null)
-                        .WithMany()
-                        .HasForeignKey("SeriesId")
+                    b.HasOne("EYECANDY2.Models.Entidades.Serie", "Serie")
+                        .WithMany("SeriesActores")
+                        .HasForeignKey("SerieId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Actor");
+
+                    b.Navigation("Serie");
+                });
+
+            modelBuilder.Entity("EYECANDY2.Models.Entidades.SerieGenero", b =>
+                {
+                    b.HasOne("EYECANDY2.Models.Entidades.Genero", "Genero")
+                        .WithMany("SeriesGeneros")
+                        .HasForeignKey("GeneroId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EYECANDY2.Models.Entidades.Serie", "Serie")
+                        .WithMany("SerieGeneros")
+                        .HasForeignKey("SerieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Genero");
+
+                    b.Navigation("Serie");
+                });
+
+            modelBuilder.Entity("EYECANDY2.Models.Entidades.Actor", b =>
+                {
+                    b.Navigation("SeriesActores");
+                });
+
+            modelBuilder.Entity("EYECANDY2.Models.Entidades.Genero", b =>
+                {
+                    b.Navigation("SeriesGeneros");
+                });
+
+            modelBuilder.Entity("EYECANDY2.Models.Entidades.Serie", b =>
+                {
+                    b.Navigation("SerieGeneros");
+
+                    b.Navigation("SeriesActores");
                 });
 #pragma warning restore 612, 618
         }

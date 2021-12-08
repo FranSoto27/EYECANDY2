@@ -10,5 +10,6 @@ namespace EYECANDY2.Repositorios
     { 
 
         Task<List<DirectorModel>> ObtenerTodos();
+        Task Guardar(DirectorCreacionModel model);
     }
 }
