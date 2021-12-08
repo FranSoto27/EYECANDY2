@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EYECANDY2.Models.Entidades
 {
-    public class Actor
+    public class Director
     {
         public int Id { get; set; }
         [Required]
@@ -18,6 +18,6 @@ namespace EYECANDY2.Models.Entidades
         public string Biografia { get; set; }
         [MaxLength(255)]
         public string ImagenUrl { get; set; }
-        public List<SerieGenero> SeriesGeneros { get; set; }
+        public List<Serie> Series { get; set; }
     }
 }

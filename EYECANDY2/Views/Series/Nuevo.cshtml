@@ -1,1 +1,60 @@
-﻿<h1>Nueva Serie</h1>
+﻿@model SerieCreacionModel
+<h1>Nueva Serie</h1>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data" asp-controller="Series" asp-action="Nuevo">
+                    <div class="form-group">
+                        <label asp-for="Nombre"></label>
+                        <input asp-for="Nombre" type="text" class="form-control" />
+                        <span asp-validation-for="Nombre" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Anio"></label>
+                        <input asp-for="Anio" type="number" class="form-control" />
+                        <span asp-validation-for="Anio" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Sinopsis"></label>
+                        <textarea asp-for="Sinopsis" class="form-control"></textarea>
+                        <span asp-validation-for="Sinopsis" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Trailer"></label>
+                        <input asp-for="Trailer" type="text" class="form-control" />
+                        <span asp-validation-for="Trailer" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Afiche</label>
+                        <input asp-for="Afiche" class="form-control" type="file" />
+                    </div>
+                    <div class="form-group">
+                        <label>Géneros</label>
+                        <select class="form-control" asp-for="GeneroId">
+                            <option value="">--Seleccione--</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Actores</label>
+                        <select class="form-control" asp-for="ActorId" asp-items="Model.Actores">
+                            <option value="">--Seleccione--</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Director</label>
+                        <select class="form-control" asp-for="DirectorId">
+                            <option value="">--Seleccione--</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </form>
+            </div>
+            <div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -16,7 +16,8 @@ namespace EYECANDY2.Models.Entidades
         public string Sinopsis { get; set; }
         public string Trailer { get; set; }
         public string AficheUrl { get; set; }
-        public List<Genero> Generos  { get; set; }
-        public List<Actor> Actores { get; set; }
+        public List<SerieGenero> SeriesGeneros  { get; set; }
+        public List<SerieActor> SeriesActores { get; set; }
+        public List<Director> Directores { get; set; }
     }
 }

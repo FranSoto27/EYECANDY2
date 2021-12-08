@@ -1,11 +1,11 @@
-﻿@model ActorCreacionModel
-<h3>Nuevo Actor</h3>
+﻿@model DirectorCreacionModel
+<h1>Nuevo Director</h1>
 <hr />
 <div class="row">
     <div class="col-md-6">
         <div class="card">
             <div class="card-body">
-                <form method="post" enctype="multipart/form-data" asp-controller="Actores" asp-action="Nuevo">
+                <form method="post" enctype="multipart/form-data" asp-controller="Directores" asp-action="Nuevo">
                     <div class="form-group">
                         <label asp-for="Nombre"></label>
                         <input asp-for="Nombre" type="text" class="form-control" />
@@ -32,4 +32,4 @@
             </div>
         </div>
     </div>
-</div>
+    </div>

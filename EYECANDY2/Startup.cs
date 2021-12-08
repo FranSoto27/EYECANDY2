@@ -33,6 +33,8 @@ namespace EYECANDY2
             services.AddScoped<IGenerosRepository, GenerosRepository>();
             services.AddScoped<IActorRepositorio, ActorRepositorio>();
             services.AddScoped<IAlmacenadorArchivos, AlmacenadorArchivos>();
+            services.AddScoped<IDirectorRepositorio, DirectorRepositorio>();
+            services.AddScoped<ISerieRepositorio, SeriesRepositorio>();
             services.AddHttpContextAccessor();
                 }
 

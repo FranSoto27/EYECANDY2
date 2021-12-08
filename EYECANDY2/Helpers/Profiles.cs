@@ -18,6 +18,7 @@ namespace EYECANDY2.Helpers
             CreateMap<Actor, ActorModel>();
             CreateMap<ActorCreacionModel, Actor>();
             CreateMap<Actor, ActorEdicionModel>();
+            CreateMap<Director, DirectorModel>();
         }
 
     }
