@@ -111,6 +111,7 @@ html, body {
         border-radius: 15px;
         margin-right: 20px;
         margin-left: 20px;
+        
     }
 
         .div-menu .nav-item:hover a {
@@ -119,6 +120,7 @@ html, body {
             margin-right: 20px;
             margin-left: 20px;
             color: black;
+
         }
 
 .menu-seleccionado {
@@ -145,6 +147,7 @@ html, body {
 
 .div-cuatro {
     text-align: center;
+    overflow: scroll;
 }
 
 body {
@@ -183,4 +186,8 @@ footer {
 .card-eliminar {
     padding-left: 250px;
     width: 75%;
+}
+.div-video {
+    padding-left: 450px;
+    padding-block-end:auto;
 }

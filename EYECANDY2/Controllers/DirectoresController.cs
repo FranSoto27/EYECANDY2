@@ -20,11 +20,6 @@ namespace EYECANDY2.Controllers
             _repositorio = repositorio;
             _almacenadorArchivos = almacenadorArchivos;
         }
-
-        public DirectoresController(IDirectorRepositorio repositorio)
-        {
-            _repositorio = repositorio;
-        }
         public async Task<IActionResult> Index()
         {
             var lista = await _repositorio.ObtenerTodos();
